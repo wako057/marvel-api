@@ -19,25 +19,3 @@ services:
       ENV_LOG_DISABLE_STATUS: 1
     networks:
       front:
-
-
-  marvel-front-ng:
-    build: ${MARVEL_PATH:-.}/docker/angular
-    volumes:
-      - ${MARVEL_PATH:-.}/angular:/var/nodejs/marvel-front-ng/current
-    expose:
-      - 8080
-    labels:
-      traefik.frontend.rule: "Host: marvel.wako057.net"
-      traefik.docker.network: "front"
-      traefik.port: 8080
-      traefik.frontend.entryPoints: http
-
-    networks:
-      front:
-
-#    environment:
-#      NODE_PORT: 8080
-#      NODE_ENV: development
-#      ENV_LOG_LEVEL: trace
-#      ENV_LOG_DISABLE_STATUS: 1

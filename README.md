@@ -9,4 +9,4 @@ Start the docker
 
 Access the view :
 
-`http://localhost:4200` 
+`http://http://marvel.wako057.net/` 
