@@ -2,16 +2,15 @@ version: '3.7'
 
 services:
   marvel-api-node:
-    build: docker/nodejs
+    build: ${MARVEL_PATH:-.}/docker/nodejs
     volumes:
-      - ./nodejs:/var/nodejs/marvel-api-node/current
-#    ports:
-#      - 8080:8080
+      - ${MARVEL_PATH:-.}/nodejs:/var/nodejs/marvel-api-node/current
     expose:
       - 8080
     labels:
-      traefik.frontend.rule: "Host: api-marvel.wako057.net"
+      traefik.frontend.rule: "Host: marvel.wako057.net"
       traefik.docker.network: "front"
+      traefik.port: 8080
       traefik.frontend.entryPoints: http
     environment:
       NODE_PORT: 8080
@@ -20,36 +19,22 @@ services:
       ENV_LOG_DISABLE_STATUS: 1
     networks:
       front:
-      back:
+
 
   marvel-front-ng:
-    build: docker/angular
+    build: ${MARVEL_PATH:-.}/docker/angular
     volumes:
-      - ./angular:/var/nodejs/marvel-front-ng/current
-#    ports:
-#      - 4200:4200
+      - ${MARVEL_PATH:-.}/angular:/var/nodejs/marvel-front-ng/current
     expose:
-      - 4200
+      - 8080
     labels:
       traefik.frontend.rule: "Host: marvel.wako057.net"
       traefik.docker.network: "front"
+      traefik.port: 8080
       traefik.frontend.entryPoints: http
+
     networks:
       front:
-      back:
-
-networks:
-  front:
-    name: front
-    ipam:
-      config:
-        - subnet: 192.168.42.0/24
-  back:
-    name: back
-    ipam:
-      config:
-        - subnet: 192.168.54.0/24
-
 
 #    environment:
 #      NODE_PORT: 8080
