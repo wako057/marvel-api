@@ -11,7 +11,8 @@
   "accessControl": {
     "enable": true,
     "allowedOrigins": [
-      "http://localhost:8080"
+      "http://localhost:8080",
+      "http://marvel.wako057.net"
     ],
     "allowMethods": "GET,PUT,POST,DELETE,PATCH,PURGE",
     "allowHeaders": "JWT,Content-Type,Cache-Control,X-Range,X-Requested-With",
