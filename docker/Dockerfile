@@ -6,12 +6,12 @@ RUN mkdir -p /var/nodejs/marvel-api-node/current && chown -R node:node /var/node
 
 WORKDIR /var/nodejs/marvel-api-node/current
 
-COPY ./run.sh /usr/local/bin/
-COPY ./healthcheck.sh /usr/local/bin
+COPY run.sh /usr/local/bin/
+COPY healthcheck.sh /usr/local/bin
 
 RUN chmod +x /usr/local/bin/run.sh && \
     chmod +x /usr/local/bin/healthcheck.sh && \
-    git clone https://github.com/wako057/linuxinit.git && linuxinit/init.sh
+    git clone https://github.com/wako057/linuxinit.git && linuxinit/init-v2.sh
 
 RUN npm install
 
