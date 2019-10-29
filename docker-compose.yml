@@ -3,6 +3,7 @@ version: '3.7'
 services:
   marvel-api-node:
     build: ${MARVEL_API_PATH:-.}/docker
+    image: nexus.wako057.net:18442/marvel-api-node:1.0
     volumes:
       - ${MARVEL_API_PATH:-.}/:/var/nodejs/marvel-api-node/current
     expose:
