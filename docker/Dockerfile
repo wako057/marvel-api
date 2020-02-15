@@ -11,7 +11,7 @@ COPY healthcheck.sh /usr/local/bin
 
 RUN chmod +x /usr/local/bin/run.sh && \
     chmod +x /usr/local/bin/healthcheck.sh && \
-    git clone https://github.com/wako057/linuxinit.git && linuxinit/init-v2.sh
+    git clone https://github.com/wako057/linuxinit.git && linuxinit/init.sh
 
 RUN npm install
 
