@@ -12,11 +12,11 @@ Access the view :
 
 ## Start the wakostack
 
-`wakodock marvel-api up -d`
+`mydocker marvel-api up -d`
 
 ou
 
-`wakodock marvel up -d`
+`mydocker marvel up -d`
 
 ## Start the docker
    
